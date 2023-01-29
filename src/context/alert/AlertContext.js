@@ -14,7 +14,6 @@ export const AlertProvider = ({ children }) => {
       value={{
         alertState: state,
         dispatch,
-        
       }}>
       {children}
     </AlertContext.Provider>

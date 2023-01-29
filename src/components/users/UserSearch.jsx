@@ -30,9 +30,13 @@ function UserSearch() {
     } else {
       dispatch({ type: 'SET_LOADING' })// set loading to true
       const users = await searchUsers(text)
-      dispatch({ type: 'GET_USERS', payload: users })
-
-      setText('')
+      if (users.length === 0) {
+        setAlert(`Cannot find user '${text}'`,'error')
+        dispatch({type:'RESET_LOADING'})
+      } else {
+        dispatch({ type: 'GET_USERS', payload: users })
+        setText('')
+      }
     }
   }
 
