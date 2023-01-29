@@ -1,4 +1,6 @@
+
 const githubReducer = (state, action) => {
+  // conventionally use switch
   switch (action.type) {
     case 'GET_USERS':
       return {
@@ -8,6 +10,7 @@ const githubReducer = (state, action) => {
       }
     case 'GET_USER_AND_REPOS':
       return {
+        // conventionally spread the state and change some of them by overriding some state
         ...state,
         user: action.payload.user,
         repos: action.payload.repos,

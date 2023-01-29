@@ -9,6 +9,7 @@ import { getUserAndRepos } from '../context/github/GithubActions'
 function User() {
   const { user, loading, repos, dispatch } = useContext(GithubContext)
 
+  // get params from the url
   const params = useParams()
 
   useEffect(() => {
@@ -87,6 +88,8 @@ function User() {
               </h1>
               <p>{bio}</p>
               <div className='mt-4 card-actions'>
+                {/* whenever use _blank need to add noreferrer */}
+                {/* Y:https://www.jianshu.com/p/a126db758843 */}
                 <a
                   href={html_url}
                   target='_blank'
@@ -132,9 +135,10 @@ function User() {
             </div>
           </div>
         </div>
-
+        
+      
         <div className='w-full py-5 mb-6 rounded-lg shadow-md bg-base-100 stats'>
-          <div className='grid grid-cols-1 md:grid-cols-3'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
             <div className='stat'>
               <div className='stat-figure text-secondary'>
                 <FaUsers className='text-3xl md:text-5xl' />
